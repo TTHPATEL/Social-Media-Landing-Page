@@ -12,6 +12,8 @@ const PostList = () => {
     fetch("https://dummyjson.com/posts")
       .then((res) => res.json())
       .then((data) => {
+        // addInitialPosts(data.posts.slice(0, 7));
+
         addInitialPosts(data.posts);
         setDataFetching(false);
       });
@@ -25,10 +27,16 @@ const PostList = () => {
         <WelcomeMsg handleOnclickFetchAPI={handleOnclickFetchAPI} />
       )}
 
-      {!dataFetching &&
+      {/* USE THIS FOR FETCH ALL THE POSTS */}
+      {/* {!dataFetching &&
         postLists.map((postitem) => (
           <Post key={postitem.id} postitem={postitem} />
-        ))}
+        ))} */}
+
+      {!dataFetching &&
+        postLists
+          .slice(0, 7)
+          .map((postitem) => <Post key={postitem.id} postitem={postitem} />)}
     </>
   );
 };

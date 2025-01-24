@@ -22,7 +22,7 @@ const PostListReducer = (currPostList, Action) => {
       (item) => item.id !== Action.payload.PostID
     );
   } else if (Action.type === "Add_Post") {
-    console.log(`This Post ID is Added ${Action.payload.id}`);
+    console.log(`This Post ID ${Action.payload.id} is Added `);
     UpdatePostList = [Action.payload, ...currPostList];
   } else if (Action.type === "Initital_Post") {
     UpdatePostList = Action.payload.dataposts;
@@ -76,10 +76,10 @@ const PostListProvider = ({ children }) => {
         setDataFetching(false);
       });
 
-    return () => {
-      // console.log("Cleaning up UseEffect.");
-      controller.abort();
-    };
+    // return () => {
+    //   // console.log("Cleaning up UseEffect.");
+    //   controller.abort();
+    // };
   }, []);
 
   return (

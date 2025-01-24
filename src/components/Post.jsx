@@ -23,7 +23,9 @@ const Post = ({ postitem }) => {
         ))}
         <div className="alert alert-success reactions" role="alert">
           This post has been reacted by{" "}
-          {postitem.reactions.likes + postitem.reactions.dislikes} people.
+          {Number(postitem.reactions.likes) +
+            Number(postitem.reactions.dislikes)}{" "}
+          people.
         </div>
       </div>
     </div>
